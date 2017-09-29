@@ -65,7 +65,7 @@ const Crop = db.define('crop', {
     type: Sequelize.INTEGER,
     notNull: true,
   },
-  lightReq: {
+  sunExposure: {
     type: Sequelize.ENUM('full', 'part', 'shade'),
     notNull: true,
     defaultValue: 'full',
