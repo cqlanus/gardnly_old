@@ -2,7 +2,7 @@
 import React from 'react';
 import {connect} from 'react-redux';
 import PropTypes from 'prop-types';
-import {auth} from '../redux';
+import {auth} from '../../redux';
 
 /**
  * COMPONENT
