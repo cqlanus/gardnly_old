@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const {User} = require('../../db/models');
+const {User, Garden, Plot} = require('../../db/models');
 
 const { mustBeLoggedIn, adminOnly } = require('../auth/filters');
 module.exports = router;
@@ -16,6 +16,19 @@ router.get('/:userId', mustBeLoggedIn, (req, res, next) => {
   User.findOne({
     where: { id: req.params.userId },
     attributes: { exclude: ['password', 'salt'] }
+  })
+    .then(user => res.json(user))
+    .catch(next);
+});
+
+router.get('/me/gardens', mustBeLoggedIn, (req, res, next) => {
+  User.findOne({
+    where: { id: req.user.id },
+    attributes: { exclude: ['password', 'salt'] },
+    include: [{
+      all:true,
+      nested:true
+    }]
   })
     .then(user => res.json(user))
     .catch(next);
