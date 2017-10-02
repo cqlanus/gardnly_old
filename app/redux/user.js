@@ -47,6 +47,15 @@ export const logout = () =>
       })
       .catch(err => console.log(err));
 
+export const meAndData = () =>
+  dispatch =>
+    axios.get('/api/users/me/gardens')
+      .then(res => {
+        console.log('what do we have?', res.data);
+        return dispatch(getUser(res.data || defaultUser));
+      })
+      .catch(console.log);
+
 /**
  * REDUCER
  */
