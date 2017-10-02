@@ -1,0 +1,15 @@
+:root {
+  --eggplant: #505168;
+  --green: #B3C0A4;
+  --light-green: #EAEFD3;
+  --yellow: #DCC48E;
+
+  --color-primary: var(--green);
+  --color-dark: var(--eggplant);
+  --color-accent: var(--yellow);
+  --color-light: var(--light-green);
+}
+
+.header {
+
+}
