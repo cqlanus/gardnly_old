@@ -15,7 +15,6 @@ const Main = ({children}) => {
     <div>
       <NavBar />
       <hr />
-      <h1>gardnly</h1>
       {children}
     </div>
   );

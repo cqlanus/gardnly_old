@@ -5,7 +5,7 @@ import {Route, Switch} from 'react-router-dom';
 import PropTypes from 'prop-types';
 import history from './history';
 import {Main, Login, Signup, UserHome} from './components';
-import {me} from './redux';
+import {meAndData} from './redux';
 
 /**
  * COMPONENT
@@ -55,7 +55,7 @@ const mapState = (state) => {
 const mapDispatch = (dispatch) => {
   return {
     loadInitialData () {
-      dispatch(me());
+      dispatch(meAndData());
     }
   };
 };

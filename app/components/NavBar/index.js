@@ -9,7 +9,8 @@ const NavBar = props => {
   const {isLoggedIn, handleClick} = props;
 
   return (
-    <div>
+    <div className="container">
+      <h3>gardnly</h3>
       <nav>
         {
           isLoggedIn
