@@ -918,6 +918,7 @@ const gardens = [
       coordinates: [41.970389, -87.683393]
     },
     isPublic: false,
+    userId: 1
   },
   {
     name: 'School',
@@ -929,6 +930,7 @@ const gardens = [
       coordinates: [42.003453, -88.058627]
     },
     isPublic: true,
+    userId: 2
   },
   {
     name: 'Work',
@@ -940,6 +942,7 @@ const gardens = [
       coordinates: [34.032830, -118.216349]
     },
     isPublic: true,
+    userId: 3
   },
 ];
 
