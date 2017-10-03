@@ -1,0 +1,14 @@
+.navbar {
+
+  background-color: var(--green);
+
+  .link {
+    color: var(--eggplant);
+    text-decoration: none;
+  }
+
+  .link:visited {
+    text-decoration: none;
+  }
+}
+

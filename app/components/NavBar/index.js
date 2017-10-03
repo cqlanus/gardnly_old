@@ -9,14 +9,14 @@ const NavBar = props => {
   const {isLoggedIn, handleClick} = props;
 
   return (
-    <div className="container">
+    <div className="navbar">
       <h3>gardnly</h3>
-      <nav>
+      <nav >
         {
           isLoggedIn
             ? <div>
               {/* The navbar will show these links after you log in */}
-              <Link to='/home'>Home</Link>
+              <Link to='/home' className="link">Home</Link>
               <a href='#' onClick={handleClick}>Logout</a>
             </div>
             : <div>

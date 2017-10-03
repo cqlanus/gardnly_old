@@ -1,5 +1,6 @@
-@import 'shared/colors.css';
-@import 'shared/typography.css';
-@import 'shared/base.css';
+@import './shared/colors.css';
+@import './shared/typography.css';
+@import './shared/base.css';
 
+@import '../components/NavBar/styles.css';
 @import '../components/user-home/styles.css';

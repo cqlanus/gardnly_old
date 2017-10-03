@@ -1,8 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import {connect} from 'react-redux';
-import Dashboard from '../Dashboard';
-import Sidebar from '../Sidebar';
+// import Dashboard from '../Dashboard';
+// import Sidebar from '../Sidebar';
 
 /**
  * COMPONENT
@@ -12,8 +12,15 @@ export const UserHome = (props) => {
 
   return (
     <div className="container">
-      <Sidebar />
-      <Dashboard />
+      <div className="column"></div>
+      <div className="column"></div>
+      <div className="column"></div>
+      <div className="column"></div>
+      <div className="column"></div>
+      <div className="column"></div>
+      <div className="column"></div>
+      <div className="column"></div>
+      <div className="column"></div>
     </div>
   );
 };

@@ -1,10 +1,17 @@
 body {
   font-family: var(--font-text);
-  background-color: var(--color-dark);
-  color: var(--color-light);
+  color: var(--color-dark);
+  width: 80%;
+  max-width: 1200px;
+  margin: 0 auto;
 }
 
 a:any-link {
   color: var(--yellow);
+  text-decoration: none;
+}
+
+.testing {
+  color: var(--green);
   text-decoration: none;
 }
