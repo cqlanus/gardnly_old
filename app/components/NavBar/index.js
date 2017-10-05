@@ -10,13 +10,15 @@ const NavBar = props => {
 
   return (
     <div className="navbar">
-      <h3>gardnly</h3>
+      <div className="brand">gardnly</div>
       <nav >
         {
           isLoggedIn
             ? <div>
               {/* The navbar will show these links after you log in */}
               <Link to='/home' className="link">Home</Link>
+              <a href='#'>Profile</a>
+              <a href='#'>Messages</a>
               <a href='#' onClick={handleClick}>Logout</a>
             </div>
             : <div>
