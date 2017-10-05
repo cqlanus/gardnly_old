@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 import NavBar from '../NavBar';
+import {Login} from '../auth-form';
 
 /**
  * COMPONENT
@@ -9,15 +10,32 @@ import NavBar from '../NavBar';
  *  else common to our entire app. The 'picture' inside the frame is the space
  *  rendered out by the component's `children`.
  */
-const Main = ({children}) => {
+class Main extends React.Component {
+  constructor() {
+    super();
+    this.state = {
+      formShown: false,
+    };
+  }
 
-  return (
-    <div>
-      <NavBar />
-      {children}
-    </div>
-  );
-};
+  showLogin() {
+    this.setState({
+      formShown: !this.state.formShown,
+    });
+  }
+
+  render() {
+    console.log(this.state);
+    const children = this.props.children;
+    return (
+      <div className="main">
+        <NavBar showLogin={this.showLogin.bind(this)}/>
+        <Login formShown={this.state.formShown}/>
+        {children}
+      </div>
+    );
+  }
+}
 
 export default Main;
 
@@ -27,3 +45,4 @@ export default Main;
 Main.propTypes = {
   children: PropTypes.object,
 };
+

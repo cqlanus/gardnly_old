@@ -8,10 +8,10 @@ import {auth} from '../../redux';
  * COMPONENT
  */
 const AuthForm = (props) => {
-  const {name, displayName, handleSubmit, error} = props;
+  const {name, displayName, handleSubmit, error, formShown} = props;
 
   return (
-    <div className="loginForm">
+    formShown && <div className="loginForm">
       <form onSubmit={handleSubmit} name={name}>
         <div className="imgContainer">
           <div className="img"></div>

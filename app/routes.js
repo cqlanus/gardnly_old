@@ -12,7 +12,7 @@ import {meAndData} from './redux';
  */
 class Routes extends Component {
   componentDidMount () {
-    this.props.loadInitialData();
+    this.props.isLoggedIn && this.props.loadInitialData();
   }
 
   render () {
@@ -23,8 +23,8 @@ class Routes extends Component {
         <Main>
           <Switch>
             {/* Routes placed here are available to all visitors */}
-            <Route path='/login' component={Login} />
-            <Route path='/signup' component={Signup} />
+{/*            <Route path='/login' component={Login} />
+            <Route path='/signup' component={Signup} />*/}
             {
               isLoggedIn &&
                 <Switch>
@@ -33,7 +33,7 @@ class Routes extends Component {
                 </Switch>
             }
             {/* Displays our Login component as a fallback */}
-            <Route component={Login} />
+{/*            <Route component={Login} />*/}
           </Switch>
         </Main>
       </Router>

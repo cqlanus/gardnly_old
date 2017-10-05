@@ -1,6 +1,7 @@
 .loginForm {
 
   width: 40%;
+  height: 400px;
   padding: 20px;
   margin: 0 auto;
 
@@ -13,8 +14,8 @@
       margin: 24px auto;
 
       & .img {
-        width: 40%;
-        height: 40%;
+        width: 200px;
+        height: 200px;
         background-color: #ccc;
         border-radius: 50%;
         margin: 0 auto;

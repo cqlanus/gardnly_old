@@ -6,7 +6,7 @@ import {logout} from '../../redux';
 
 
 const NavBar = props => {
-  const {isLoggedIn, handleClick} = props;
+  const {isLoggedIn, handleClick, showLogin} = props;
 
   return (
     <div className="navbar">
@@ -23,8 +23,8 @@ const NavBar = props => {
             </div>
             : <div>
               {/* The navbar will show these links before you log in */}
-              <Link to='/login'>Login</Link>
-              <Link to='/signup'>Sign Up</Link>
+              <a href='#' name="login" onClick={showLogin}>Login</a>
+              <a href='#' >Sign Up</a>
             </div>
         }
       </nav>
