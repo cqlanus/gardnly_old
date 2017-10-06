@@ -3,7 +3,8 @@ import PropTypes from 'prop-types';
 import {connect} from 'react-redux';
 // import Dashboard from '../Dashboard';
 // import Sidebar from '../Sidebar';
-import {meAndData, me} from '../../redux';
+import VertTabs from '../VertTabs';
+import {meAndData} from '../../redux';
 
 
 /**
@@ -12,18 +13,10 @@ import {meAndData, me} from '../../redux';
 class UserHome extends Component {
 
   render() {
-    const {email} = this.props;
+    const {gardens} = this.props;
     return (
       <div className="container">
-        <div className="column"></div>
-        <div className="column"></div>
-        <div className="column"></div>
-        <div className="column"></div>
-        <div className="column"></div>
-        <div className="column"></div>
-        <div className="column"></div>
-        <div className="column"></div>
-        <div className="column"></div>
+        <VertTabs tabs={gardens} />
       </div>
     );
   }
@@ -36,7 +29,8 @@ class UserHome extends Component {
 const mapState = (state) => {
   return {
     isLoggedIn: !!state.user.id,
-    email: state.user.email
+    email: state.user.email,
+    gardens: state.user.gardens,
   };
 };
 
@@ -44,7 +38,7 @@ const mapDispatch = (dispatch) => {
   return {
     loadInitialData () {
       console.log('getting called');
-      dispatch(me());
+      dispatch(meAndData());
     }
   };
 };
@@ -57,5 +51,5 @@ export default connect(mapState, mapDispatch)(UserHome);
 UserHome.propTypes = {
   loadInitialData: PropTypes.func.isRequired,
   isLoggedIn: PropTypes.bool.isRequired,
-  email: PropTypes.string
+  gardens: PropTypes.array,
 };

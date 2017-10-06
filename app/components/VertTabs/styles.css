@@ -1,0 +1,24 @@
+.vertTabs {
+  float: left;
+  border: 1px solid, #ccc;
+  background-color: #f1f1f1;
+  width: 25%;
+  height: 300px;
+
+  & .tabLinks {
+    display: block;
+    background-color: inherit;
+    color: black;
+    padding: 22px 16px;
+    width: 100%;
+    border: none;
+    outline: none;
+    text-align: left;
+    cursor: pointer;
+    transition: 0.3s;
+  }
+
+  & .tabLinks:hover {
+    background-color: #ddd;
+  }
+}
