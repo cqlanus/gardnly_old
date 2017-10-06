@@ -12,11 +12,11 @@ import {meAndData} from './redux';
  */
 class Routes extends Component {
   componentDidMount () {
-    console.log('mount', this.props.isLoggedIn);
-    this.props.isLoggedIn && this.props.loadInitialData();
+    this.props.loadInitialData();
   }
 
   render () {
+    console.log('mount', this.props.isLoggedIn);
     const {isLoggedIn} = this.props;
     console.log('logged in?', isLoggedIn);
     return (
@@ -55,6 +55,7 @@ const mapState = (state) => {
 const mapDispatch = (dispatch) => {
   return {
     loadInitialData () {
+      console.log('getting called');
       dispatch(meAndData());
     }
   };
