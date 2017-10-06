@@ -1,8 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import {connect} from 'react-redux';
 
 import NavBar from '../NavBar';
-import {Login} from '../auth-form';
+import {Login, Signup} from '../auth-form';
 
 /**
  * COMPONENT
@@ -13,36 +14,36 @@ import {Login} from '../auth-form';
 class Main extends React.Component {
   constructor() {
     super();
-    this.state = {
-      formShown: false,
-    };
-  }
-
-  showLogin() {
-    this.setState({
-      formShown: !this.state.formShown,
-    });
   }
 
   render() {
-    console.log(this.state);
     const children = this.props.children;
     return (
       <div className="main">
-        <NavBar showLogin={this.showLogin.bind(this)}/>
-        <Login formShown={this.state.formShown}/>
+        <NavBar />
+        {this.props.showLogin && <Login />}
+        {this.props.showSignup && <Signup />}
         {children}
       </div>
     );
   }
 }
 
-export default Main;
+const mapState = (state) => {
+  return {
+    showLogin: state.authForm.login,
+    showSignup: state.authForm.signup,
+  };
+};
+
+export default connect(mapState, null)(Main);
 
 /**
  * PROP TYPES
  */
 Main.propTypes = {
   children: PropTypes.object,
+  showLogin: PropTypes.bool,
+  showSignup: PropTypes.bool,
 };
 

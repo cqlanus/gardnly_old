@@ -2,11 +2,11 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import {connect} from 'react-redux';
 import {withRouter, Link} from 'react-router-dom';
-import {logout} from '../../redux';
+import {logout, toggleLogin, toggleSignup} from '../../redux';
 
 
 const NavBar = props => {
-  const {isLoggedIn, handleClick, showLogin} = props;
+  const {isLoggedIn, handleClick, showLogin, showSignup} = props;
 
   return (
     <div className="navbar">
@@ -24,7 +24,7 @@ const NavBar = props => {
             : <div>
               {/* The navbar will show these links before you log in */}
               <a href='#' name="login" onClick={showLogin}>Login</a>
-              <a href='#' >Sign Up</a>
+              <a href='#' name="signup" onClick={showSignup}>Sign Up</a>
             </div>
         }
       </nav>
@@ -45,6 +45,12 @@ const mapDispatch = (dispatch) => {
   return {
     handleClick () {
       dispatch(logout());
+    },
+    showLogin() {
+      dispatch(toggleLogin(true));
+    },
+    showSignup() {
+      dispatch(toggleSignup(true));
     }
   };
 };
@@ -55,5 +61,7 @@ export default withRouter(connect(mapState, mapDispatch)(NavBar));
 
 NavBar.propTypes = {
   handleClick: PropTypes.func.isRequired,
-  isLoggedIn: PropTypes.bool.isRequired
+  isLoggedIn: PropTypes.bool.isRequired,
+  showLogin: PropTypes.func,
+  showSignup: PropTypes.func,
 };

@@ -2,17 +2,28 @@
 import React from 'react';
 import {connect} from 'react-redux';
 import PropTypes from 'prop-types';
-import {auth} from '../../redux';
+import {auth, toggleLogin, toggleSignup} from '../../redux';
 
 /**
  * COMPONENT
  */
 const AuthForm = (props) => {
-  const {name, displayName, handleSubmit, error, formShown} = props;
+  const {
+    name,
+    displayName,
+    handleSubmit,
+    error,
+    hideAll
+  } = props;
+
 
   return (
-    formShown && <div className="loginForm">
-      <form onSubmit={handleSubmit} name={name}>
+    <div className="loginForm">
+      <span
+        className="closeBtn"
+        onClick={hideAll}
+      >&times;</span>
+      <form onSubmit={handleSubmit} name={name} className="modal-content">
         <div className="imgContainer">
           <div className="img"></div>
         </div>
@@ -66,6 +77,13 @@ const mapDispatch = (dispatch) => {
       const email = evt.target.email.value;
       const password = evt.target.password.value;
       dispatch(auth(email, password, formName));
+      dispatch(toggleLogin(false));
+      dispatch(toggleSignup(false));
+    },
+    hideAll() {
+      console.log('called');
+      dispatch(toggleLogin(false));
+      dispatch(toggleSignup(false));
     }
   };
 };
@@ -80,5 +98,6 @@ AuthForm.propTypes = {
   name: PropTypes.string.isRequired,
   displayName: PropTypes.string.isRequired,
   handleSubmit: PropTypes.func.isRequired,
-  error: PropTypes.object
+  error: PropTypes.object,
+  hideAll: PropTypes.func
 };

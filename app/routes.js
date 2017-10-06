@@ -12,19 +12,19 @@ import {meAndData} from './redux';
  */
 class Routes extends Component {
   componentDidMount () {
+    console.log('mount', this.props.isLoggedIn);
     this.props.isLoggedIn && this.props.loadInitialData();
   }
 
   render () {
     const {isLoggedIn} = this.props;
-
+    console.log('logged in?', isLoggedIn);
     return (
       <Router history={history}>
         <Main>
           <Switch>
             {/* Routes placed here are available to all visitors */}
-{/*            <Route path='/login' component={Login} />
-            <Route path='/signup' component={Signup} />*/}
+
             {
               isLoggedIn &&
                 <Switch>
@@ -33,7 +33,7 @@ class Routes extends Component {
                 </Switch>
             }
             {/* Displays our Login component as a fallback */}
-{/*            <Route component={Login} />*/}
+            {/*<Route component={Login} />*/}
           </Switch>
         </Main>
       </Router>
