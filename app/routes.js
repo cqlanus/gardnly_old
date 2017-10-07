@@ -16,9 +16,7 @@ class Routes extends Component {
   }
 
   render () {
-    console.log('mount', this.props.isLoggedIn);
     const {isLoggedIn} = this.props;
-    console.log('logged in?', isLoggedIn);
     return (
       <Router history={history}>
         <Main>

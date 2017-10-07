@@ -4,17 +4,23 @@ import {connect} from 'react-redux';
 
 const GardenSummary = ({garden}) => (
   <div>
-    <h2>Garden</h2>
+    {garden.id && <h2>Garden</h2>}
     <div>Name: {garden.name}</div>
     <div>Location: {garden.description}</div>
     {
-      garden.plots.map(plot => <div key={plot.id}>Plot: {plot.name}</div>)
+      garden.plots && garden.plots.map(plot => <div key={plot.id}>Plot: {plot.name}</div>)
     }
   </div>
 );
 
 GardenSummary.propTypes = {
-  garden: PropTypes.object,
+  garden: PropTypes.object.isRequired,
 };
 
-export default GardenSummary;
+const mapState = state => {
+  return {
+    garden: state.garden,
+  };
+};
+
+export default connect(mapState, null)(GardenSummary);

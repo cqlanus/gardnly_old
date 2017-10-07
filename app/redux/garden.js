@@ -14,6 +14,7 @@ export const removeGarden = () => ({ type: REMOVE_GARDEN });
 /* THUNK CREATOR */
 export const requestGarden = gardenId =>
   dispatch => {
+    console.log('gardenid', gardenId);
     return axios.get(`/api/gardens/${gardenId}`)
       .then(res => res.data)
       .then(garden => dispatch(getGarden(garden)));
@@ -23,7 +24,7 @@ export const requestGarden = gardenId =>
 export default function (prevState=selectedGarden, action) {
 
   switch(action.type) {
-  
+
   case GET_GARDEN:
     return action.garden;
 

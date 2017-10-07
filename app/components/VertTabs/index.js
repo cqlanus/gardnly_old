@@ -1,21 +1,39 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import {connect} from 'react-redux';
+import {requestGarden} from '../../redux';
 
-const VertTabs = ({tabs}) => (
+
+const VertTabs = ({tabs, fetchGarden}) => (
   <div className="vertTabs">
-  {
-    // tabs.forEach(tab => <button key={tab.name} className="tabLink">{tab.name}</button>)
-  }
-
-    <button className="tablinks" >London</button>
-    <button className="tablinks" >Paris</button>
-    <button className="tablinks" >Tokyo</button>
+    {
+      tabs && tabs.map(tab =>
+        <button
+          key={tab.id}
+          className="tabLinks"
+          id={tab.id}
+          onClick={() => fetchGarden(tab.id)}
+        >{tab.name}</button>)
+    }
   </div>
 );
 
 VertTabs.propTypes = {
-  tabs = PropTypes.array,
+  tabs: PropTypes.array.isRequired,
+  fetchGarden: PropTypes.func.isRequired
 };
 
-export default VertTabs;
+
+const mapState = state => {
+  return {};
+};
+
+const mapDispatch = dispatch => {
+  return {
+    fetchGarden(id) {
+      dispatch(requestGarden(id));
+    }
+  };
+};
+
+export default connect(mapState, mapDispatch)(VertTabs);

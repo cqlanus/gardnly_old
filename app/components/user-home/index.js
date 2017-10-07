@@ -4,6 +4,7 @@ import {connect} from 'react-redux';
 // import Dashboard from '../Dashboard';
 // import Sidebar from '../Sidebar';
 import VertTabs from '../VertTabs';
+import GardenSummary from '../GardenSummary';
 import {meAndData} from '../../redux';
 
 
@@ -17,6 +18,7 @@ class UserHome extends Component {
     return (
       <div className="container">
         <VertTabs tabs={gardens} />
+        <GardenSummary />
       </div>
     );
   }
@@ -37,7 +39,6 @@ const mapState = (state) => {
 const mapDispatch = (dispatch) => {
   return {
     loadInitialData () {
-      console.log('getting called');
       dispatch(meAndData());
     }
   };
