@@ -1,0 +1,11 @@
+.gardenSummary {
+  flex-utility: clearfix;
+
+  & .quarter {
+    lost-column: 1/4 0;
+  }
+
+  & .plots {
+    padding-top: 20px;
+  }
+}

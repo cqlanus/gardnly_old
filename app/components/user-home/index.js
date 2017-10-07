@@ -17,8 +17,12 @@ class UserHome extends Component {
     const {gardens} = this.props;
     return (
       <div className="container">
-        <VertTabs tabs={gardens} />
-        <GardenSummary />
+        <div className="column">
+          <VertTabs tabs={gardens} />
+        </div>
+        <div className="gardenSummary">
+          <GardenSummary />
+        </div>
       </div>
     );
   }
