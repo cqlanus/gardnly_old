@@ -7,17 +7,35 @@ const PlotCard = ({plot}) => (
     <div className="img"></div>
     <div className="details">
       <div className="soilBar">
-        <div className="nit third">{plot.soilN}</div>
-        <div className="phos third">{plot.soilP}</div>
-        <div className="potash third">{plot.soilK}</div>
+        <div className="nit third">
+          <div className="title">N</div>
+          <div className="text">{plot.soilN}</div>
+        </div>
+        <div className="phos third">
+          <div className="title">P</div>
+          <div className="text">{plot.soilP}</div>
+        </div>
+        <div className="potash third">
+          <div className="title">K</div>
+          <div className="text">{plot.soilK}</div>
+        </div>
       </div>
       <div className="soilBar">
-        <div className="pH third">{plot.soilPh}</div>
-        <div className="texture third">{plot.soilTexture}</div>
-        <div className="sun third">{plot.sunExposure}</div>
+        <div className="pH third">
+          <div className="title">pH</div>
+          <div className="text">{plot.soilPh}</div>
+        </div>
+        <div className="texture third">
+          <div className="title">txtr</div>
+          <div className="text">{plot.soilTexture}</div>
+        </div>
+        <div className="sun third">
+          <div className="title">sun</div>
+          <div className="text">{plot.sunExposure}</div>
+        </div>
       </div>
 
-      <h4>{plot.name}</h4>
+      <h3>{plot.name}</h3>
     </div>
   </div>
 );

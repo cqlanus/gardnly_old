@@ -6,9 +6,8 @@ import PlotCard from '../PlotCard';
 
 const GardenSummary = ({garden}) => (
   <div className="gardenSummary">
-    {garden.id && <h2>Garden</h2>}
-    <div>Name: {garden.name}</div>
-    <div>Location: {garden.description}</div>
+    <h2>Garden: {garden.name}</h2>
+    <div><em>{garden.description}</em></div>
     {
       garden.plots && garden.plots.map(plot =>
         <div className="plots quarter" key={plot.id}>

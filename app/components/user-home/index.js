@@ -14,14 +14,14 @@ import {meAndData} from '../../redux';
 class UserHome extends Component {
 
   render() {
-    const {gardens} = this.props;
+    const {gardens, hasGarden} = this.props;
     return (
       <div className="container">
         <div className="column">
           <VertTabs tabs={gardens} />
         </div>
         <div className="gardenSummary">
-          <GardenSummary />
+          { hasGarden && <GardenSummary />}
         </div>
       </div>
     );
@@ -37,6 +37,7 @@ const mapState = (state) => {
     isLoggedIn: !!state.user.id,
     email: state.user.email,
     gardens: state.user.gardens,
+    hasGarden: !!state.garden.id,
   };
 };
 
@@ -57,4 +58,5 @@ UserHome.propTypes = {
   loadInitialData: PropTypes.func.isRequired,
   isLoggedIn: PropTypes.bool.isRequired,
   gardens: PropTypes.array,
+  hasGarden: PropTypes.bool.isRequired,
 };

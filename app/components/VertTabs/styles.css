@@ -1,16 +1,17 @@
 .vertTabs {
-  border: 1px solid, #ccc;
+  /* border: 1px solid #ccc; */
   background-color: #f1f1f1;
   height: 100vh;
   width: 100%;
 
   & .tabLinks {
     display: block;
-    background-color: inherit;
     color: black;
+    background-color: inherit;
     padding: 22px 16px;
     width: 100%;
     border: none;
+    border-bottom: 1px solid #ddd;
     outline: none;
     text-align: left;
     cursor: pointer;
