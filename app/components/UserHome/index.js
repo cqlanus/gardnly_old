@@ -6,6 +6,7 @@ import {connect} from 'react-redux';
 import VertTabs from '../VertTabs';
 import GardenSummary from '../GardenSummary';
 import {meAndData} from '../../redux';
+import {withRouter} from 'react-router-dom';
 
 
 /**

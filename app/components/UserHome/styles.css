@@ -3,7 +3,7 @@
   lost-utility: clearfix;
 
   & .column {
-    lost-column: 1/6 0;
+    lost-column: 1/6;
     height: 100%;
   }
 
