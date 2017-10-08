@@ -29,7 +29,7 @@ const AuthForm = (props) => {
         </div>
         <div>
           <label htmlFor='email'><small>Email</small></label>
-          <input name='email' type='text' className="email"/>
+          <input name='email' type='text' className="email" autoFocus/>
         </div>
         <div>
           <label htmlFor='password'><small>Password</small></label>

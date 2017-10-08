@@ -3,7 +3,9 @@ import PropTypes from 'prop-types';
 import {connect} from 'react-redux';
 import {Link} from 'react-router-dom';
 import {logout, toggleLogin, toggleSignup} from '../../redux';
-
+import FaEnvelopeO from 'react-icons/lib/fa/envelope-o';
+import FaHome from 'react-icons/lib/fa/home';
+import FaUser from 'react-icons/lib/fa/user';
 
 const NavBar = props => {
   const {isLoggedIn, handleClick, showLogin, showSignup} = props;
@@ -16,9 +18,9 @@ const NavBar = props => {
           isLoggedIn
             ? <div>
               {/* The navbar will show these links after you log in */}
-              <Link to='/home' className="link">Home</Link>
-              <a className="link" href='#'>Profile</a>
-              <a className="link" href='#'>Messages</a>
+              <Link to='/home' className="link icon"><FaHome /></Link>
+              <a className="link icon" href='#'><FaUser /></a>
+              <a className="link icon" href='#'><FaEnvelopeO /></a>
               <a className="link" href='#' onClick={handleClick}>Logout</a>
             </div>
             : <div>

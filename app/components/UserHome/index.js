@@ -5,8 +5,8 @@ import {connect} from 'react-redux';
 // import Sidebar from '../Sidebar';
 import VertTabs from '../VertTabs';
 import GardenSummary from '../GardenSummary';
+import ForecastSummary from '../ForecastSummary';
 import {meAndData} from '../../redux';
-import {withRouter} from 'react-router-dom';
 
 
 /**
@@ -22,7 +22,7 @@ class UserHome extends Component {
           <VertTabs tabs={gardens} />
         </div>
         <div className="gardenSummary">
-          { hasGarden && <GardenSummary />}
+          { hasGarden ? <GardenSummary /> : <ForecastSummary />}
         </div>
       </div>
     );

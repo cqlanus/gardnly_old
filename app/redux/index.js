@@ -5,8 +5,9 @@ import { composeWithDevTools } from 'redux-devtools-extension';
 import user from './user';
 import authForm from './auth-form';
 import garden from './garden';
+import weather from './weather';
 
-const reducer = combineReducers({user, authForm, garden});
+const reducer = combineReducers({user, authForm, garden, weather});
 const middleware = applyMiddleware(thunkMiddleware, createLogger({collapsed: true}));
 const withDevToolsExtension = composeWithDevTools(middleware);
 const store = createStore(reducer, withDevToolsExtension);
@@ -15,3 +16,4 @@ export default store;
 export * from './user';
 export * from './auth-form';
 export * from './garden';
+export * from './weather';

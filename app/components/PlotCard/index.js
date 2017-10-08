@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import {connect} from 'react-redux';
+import Icon from '../Icon';
 
 const PlotCard = ({plot}) => (
   <div className="plotCard">
@@ -9,15 +10,15 @@ const PlotCard = ({plot}) => (
       <div className="soilBar">
         <div className="nit third">
           <div className="title">N</div>
-          <div className="text">{plot.soilN}</div>
+          <div className={`dot ${plot.soilN}`}></div>
         </div>
         <div className="phos third">
           <div className="title">P</div>
-          <div className="text">{plot.soilP}</div>
+          <div className={`dot ${plot.soilP}`}></div>
         </div>
         <div className="potash third">
           <div className="title">K</div>
-          <div className="text">{plot.soilK}</div>
+          <div className={`dot ${plot.soilK}`}></div>
         </div>
       </div>
       <div className="soilBar">
@@ -31,7 +32,7 @@ const PlotCard = ({plot}) => (
         </div>
         <div className="sun third">
           <div className="title">sun</div>
-          <div className="text">{plot.sunExposure}</div>
+          <div className="text icon"><Icon icon={plot.sunExposure}/></div>
         </div>
       </div>
 

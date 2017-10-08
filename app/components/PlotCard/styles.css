@@ -25,7 +25,33 @@
       & .text {
         text-align: center;
         margin: 0 auto;
-        padding-top: 5px;
+        margin-top: 5px;
+      }
+
+      & .dot {
+        text-align: center;
+        margin: 0 auto;
+        margin-top: 5px;
+        height: 22px;
+        width: 22px;
+        border-radius: 50%;
+        background-color: #bbb;
+      }
+
+      & .low {
+        background-color: #f00;
+      }
+
+      & .med {
+        background-color: gold;
+      }
+
+      & .high {
+        background-color: #0faf04;
+      }
+
+      & .icon {
+        font-size: 28px;
       }
     }
   }

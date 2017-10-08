@@ -31,6 +31,10 @@
     background-color: #ddd;
     color: black;
   }
+
+  & .icon {
+    font-size: 22px;
+  }
 }
 
 /* TODO: Add responsive media queries */

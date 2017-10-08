@@ -1,9 +1,10 @@
 import React from 'react';
 import {connect} from 'react-redux';
-import {Link, withRouter} from 'react-router-dom';
+import {Link} from 'react-router-dom';
 import PropTypes from 'prop-types';
+import {toggleLogin, toggleSignup} from '../../redux';
 
-const Splash = ({isLoggedIn}) => (
+const Splash = ({isLoggedIn, showLogin, showSignup}) => (
 
   <div className="splash">
     <div className="splash-text">
@@ -12,11 +13,11 @@ const Splash = ({isLoggedIn}) => (
       {
         isLoggedIn ?
           <div>
-            <button><Link to="/home">go home</Link></button>
+            <Link to="/home"><button className="full">go home</button></Link>
           </div>
-          : <div>
-            <button>sign up</button>
-            <button>log in</button>
+          : <div className="btnContainer">
+            <button name="login" onClick={showSignup}>sign up</button>
+            <button name="signup" onClick={showLogin}>log in</button>
           </div>
       }
     </div>
@@ -30,8 +31,21 @@ const mapState = state => {
   };
 };
 
-export default connect(mapState, null)(Splash);
+const mapDispatch = dispatch => {
+  return {
+    showLogin() {
+      dispatch(toggleLogin(true));
+    },
+    showSignup() {
+      dispatch(toggleSignup(true));
+    }
+  };
+};
+
+export default connect(mapState, mapDispatch)(Splash);
 
 Splash.propTypes = {
-  isLoggedIn: PropTypes.bool.isRequired
+  isLoggedIn: PropTypes.bool.isRequired,
+  showLogin: PropTypes.func.isRequired,
+  showSignup: PropTypes.func.isRequired,
 };

@@ -9,3 +9,5 @@
 @import '../components/PlotCard/styles.css';
 @import '../components/GardenSummary/styles.css';
 @import '../components/Splash/styles.css';
+@import '../components/ForecastSummary/styles.css';
+@import '../components/WeatherCard/styles.css';
