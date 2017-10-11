@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import {connect} from 'react-redux';
-import {requestForecast} from '../../redux';
+import {requestForecast, requestField, getAllFields} from '../../redux';
 import WeatherCard from '../WeatherCard';
 
 class ForecastSummary extends React.Component {
@@ -10,7 +10,7 @@ class ForecastSummary extends React.Component {
   }
 
   render() {
-    const {forecast} = this.props;
+    const {forecast, createField, getFields} = this.props;
     console.log('forecast', forecast);
     return (
       <div className="forecastCard">
@@ -25,6 +25,10 @@ class ForecastSummary extends React.Component {
             })
           }
         </div>
+
+        <button onClick={() => createField(60625)}>Create field</button>
+        <button onClick={() => getFields()}>Get Fields</button>
+
       </div>
     );
   }
@@ -40,6 +44,12 @@ const mapDispatch = dispatch => {
   return {
     getForecast(zip) {
       dispatch(requestForecast(zip));
+    },
+    createField(zip) {
+      dispatch(requestField(zip));
+    },
+    getFields() {
+      dispatch(getAllFields());
     }
   };
 };
@@ -49,4 +59,6 @@ export default connect(mapState, mapDispatch)(ForecastSummary);
 ForecastSummary.propTypes = {
   forecast: PropTypes.object,
   getForecast: PropTypes.func,
+  createField: PropTypes.func,
+  getFields: PropTypes.func,
 };
