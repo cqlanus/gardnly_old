@@ -1,14 +1,14 @@
-const Sequelize = require('sequelize');
-const db = require('../db');
-
-module.exports = db.define('station', {
-  usaf: {type: Sequelize.STRING},
-  wban: {type: Sequelize.STRING},
-  station_name: {type: Sequelize.STRING},
-  country: {type: Sequelize.STRING},
-  state: {type: Sequelize.STRING},
-  call_letters: {type: Sequelize.STRING},
-  latitude: {type: Sequelize.STRING},
-  longitude: {type: Sequelize.STRING},
-  elevation: {type: Sequelize.STRING},
-});
+'use strict';
+module.exports = function(sequelize, DataTypes) {
+  var stations = sequelize.define('stations', {
+    usaf: DataTypes.STRING,
+    wban: DataTypes.STRING,
+    station_name: DataTypes.STRING,
+    country: DataTypes.STRING,
+    state: DataTypes.STRING,
+    call_letters: DataTypes.STRING,
+    center: DataTypes.GEOMETRY,
+    elevation: DataTypes.STRING
+  });
+  return stations;
+};
