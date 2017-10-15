@@ -1,7 +1,7 @@
 const Sequelize = require('sequelize');
 const db = require('../db');
 
-module.exports = db.define('daily_min_temps', {
+const MinTemp = db.define('daily_min_temps', {
   station_id: {
     type: Sequelize.STRING,
     allownull: false,
@@ -18,3 +18,24 @@ module.exports = db.define('daily_min_temps', {
     allownull: false,
   }
 });
+
+MinTemp.findByZip = function(zip) {
+  const query = `
+  SELECT * FROM stations
+  WHERE wban <> '99999'
+  ORDER BY center <-> (SELECT center FROM zips WHERE zip='${zip}')
+  LIMIT 1`;
+  return db.query(query, { type: db.QueryTypes.SELECT})
+    .then(row => {
+      console.log(row);
+      const query = `
+      SELECT * FROM daily_min_temps
+      WHERE station_id ='${row[0].station_id}'
+      `;
+      return db.query(query, { type: db.QueryTypes.SELECT});
+    })
+    .then(maxTemps => maxTemps)
+    .catch(console.log);
+};
+
+module.exports = MinTemp;

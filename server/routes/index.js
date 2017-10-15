@@ -7,6 +7,7 @@ router.use('/plots', require('./plots'));
 router.use('/plantings', require('./plantings'));
 router.use('/crops', require('./crops'));
 router.use('/awhere', require('./awhere'));
+router.use('/weather', require('./weather'));
 
 router.use((req, res, next) => {
   const error = new Error('Not Found');

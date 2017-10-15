@@ -1,6 +1,6 @@
 const TempMax = require('../../db').model('daily_max_temps');
 const TempMin = require('../../db').model('daily_min_temps');
-const Station = require('../../db').model('station');
+const Station = require('../../db/models/stations');
 
 
 module.exports = require('express').Router()
@@ -9,6 +9,11 @@ module.exports = require('express').Router()
       where: { wpan: req.params.stationId }
     })
       .then(rows => res.json(rows))
+      .catch(next);
+  })
+  .get('/tempmax/zip/:zip', (req, res, next) => {
+    TempMax.findByZip(req.params.zip)
+      .then(zip => res.json(zip))
       .catch(next);
   })
   .get('/tempmax/station/:stationId/month/:month', (req, res, next) => {
@@ -26,6 +31,11 @@ module.exports = require('express').Router()
       where: { wpan: req.params.stationId }
     })
       .then(rows => res.json(rows))
+      .catch(next);
+  })
+  .get('/tempmin/zip/:zip', (req, res, next) => {
+    TempMin.findByZip(req.params.zip)
+      .then(zip => res.json(zip))
       .catch(next);
   })
   .get('/tempmin/station/:stationId/month/:month', (req, res, next) => {
