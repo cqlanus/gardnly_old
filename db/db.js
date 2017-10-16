@@ -37,10 +37,11 @@ const operatorsAliases = {
   $col: Op.col
 };
 const db = new Sequelize('gardnly', 'cqlanus', 'hello123',
-  { 
+  {
     host: 'localhost',
     dialect: 'postgres',
     logging: false ,
+    port: 5432,
     operatorsAliases
   }
 );
