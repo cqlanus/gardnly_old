@@ -1,0 +1,83 @@
+.loginForm {
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgb(0,0,0, 0.4);
+  /* background-color: rbg(0,0,0,0.4); */
+  padding-top: 60px;
+
+  & .modal-content {
+    background-color: #fefefe;
+    margin: 5px auto;
+    border: 1px solid #888;
+    width: 40%;
+  }
+
+  & .closeBtn {
+    position: absolute;
+    right: 25px;
+    top: 50px;
+    color: #fff;
+    font-size: 35px;
+    font-weight: bold;
+  }
+
+  & .closeBtn:hover {
+    color: red;
+    cursor: pointer;
+  }
+
+  & form {
+
+    padding: 16px;
+
+    & .imgContainer {
+      text-align: center;
+      margin: 24px auto;
+
+      & .img {
+        width: 200px;
+        height: 200px;
+        background-color: #ccc;
+        border-radius: 50%;
+        margin: 0 auto;
+      }
+    }
+
+    & .email, & .pass {
+      width: 100%;
+      padding: 12px 20px;
+      margin: 8px 0;
+      display: inline-block;
+      border: 1px solid #ccc;
+      box-sizing: border-box;
+      font-size: 1em;
+    }
+
+    & button {
+      background-color: var(--green);
+      color: white;
+      padding: 14px 20px;
+      margin: 8px 0;
+      border: none;
+      cursor: pointer;
+      width: 100%;
+      font-size: 17px;
+    }
+
+    & button:hover {
+      opacity: 0.8;
+    }
+
+    & a {
+      text-decoration: none;
+      color: white;
+    }
+
+  }
+
+}

@@ -1,0 +1,62 @@
+.plotCard {
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+  transition: 0.3s;
+  cursor: pointer;
+
+  & .details {
+    padding: 2px 16px;
+
+    & .soilBar {
+      lost-utility: clearfix;
+
+      & .third {
+        lost-column: 1/3 3 10px;
+      }
+
+      & .title {
+        border-bottom: 1px solid #000;
+        text-align: center;
+        font-weight: bold;
+        width: 70%;
+        margin: 0 auto;
+        padding-top: 15px;
+      }
+
+      & .text {
+        text-align: center;
+        margin: 0 auto;
+        margin-top: 5px;
+      }
+
+      & .dot {
+        text-align: center;
+        margin: 0 auto;
+        margin-top: 5px;
+        height: 22px;
+        width: 22px;
+        border-radius: 50%;
+        background-color: #bbb;
+      }
+
+      & .low {
+        background-color: #f00;
+      }
+
+      & .med {
+        background-color: gold;
+      }
+
+      & .high {
+        background-color: #0faf04;
+      }
+
+      & .icon {
+        font-size: 28px;
+      }
+    }
+  }
+}
+
+.plotCard:hover {
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+}

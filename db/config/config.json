@@ -1,0 +1,23 @@
+{
+  "development": {
+    "username": "cqlanus",
+    "password": null,
+    "database": "gardnly2",
+    "host": "127.0.0.1",
+    "dialect": "postgres"
+  },
+  "test": {
+    "username": "cqlanus",
+    "password": null,
+    "database": "gardnly_test",
+    "host": "127.0.0.1",
+    "dialect": "postgres"
+  },
+  "production": {
+    "username": "cqlanus",
+    "password": null,
+    "database": "gardnly_prod",
+    "host": "127.0.0.1",
+    "dialect": "postgres"
+  }
+}

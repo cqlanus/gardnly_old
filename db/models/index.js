@@ -3,6 +3,9 @@ const Crop = require('./crop');
 const Garden = require('./gardens');
 const Planting = require('./plantings');
 const Plot = require('./plots');
+const MaxTemp = require('./tempMax');
+const MinTemp = require('./tempMin');
+const Station = require('./stations');
 
 /* User Relationships */
 User.hasMany(Garden);
@@ -29,5 +32,8 @@ module.exports = {
   Crop,
   Garden,
   Planting,
-  Plot
+  Plot,
+  MaxTemp,
+  MinTemp,
+  Station
 };

@@ -64,6 +64,7 @@
     "postcss-loader": "^2.0.6",
     "redux-devtools-extension": "^2.13.2",
     "sass-loader": "^6.0.0",
+    "sequelize-cli": "^3.0.0",
     "sinon": "^3.2.1",
     "sinon-chai": "^2.13.0",
     "style-loader": "^0.18.2",

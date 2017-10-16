@@ -2,31 +2,46 @@
 import React from 'react';
 import {connect} from 'react-redux';
 import PropTypes from 'prop-types';
-import {auth} from '../../redux';
+import {auth, toggleLogin, toggleSignup} from '../../redux';
 
 /**
  * COMPONENT
  */
 const AuthForm = (props) => {
-  const {name, displayName, handleSubmit, error} = props;
+  const {
+    name,
+    displayName,
+    handleSubmit,
+    error,
+    hideAll
+  } = props;
+
 
   return (
-    <div>
-      <form onSubmit={handleSubmit} name={name}>
+    <div className="loginForm">
+      <span
+        className="closeBtn"
+        onClick={hideAll}
+      >&times;</span>
+      <form onSubmit={handleSubmit} name={name} className="modal-content">
+        <div className="imgContainer">
+          <div className="img"></div>
+        </div>
         <div>
           <label htmlFor='email'><small>Email</small></label>
-          <input name='email' type='text' />
+          <input name='email' type='text' className="email" autoFocus/>
         </div>
         <div>
           <label htmlFor='password'><small>Password</small></label>
-          <input name='password' type='password' />
+          <input name='password' type='password' className="pass"/>
         </div>
         <div>
           <button type='submit'>{displayName}</button>
+          <button><a href='/auth/google'>{displayName} with Google</a></button>
         </div>
         {error && error.response && <div> {error.response.data} </div>}
       </form>
-      <a href='/auth/google'>{displayName} with Google</a>
+
     </div>
   );
 };
@@ -62,6 +77,13 @@ const mapDispatch = (dispatch) => {
       const email = evt.target.email.value;
       const password = evt.target.password.value;
       dispatch(auth(email, password, formName));
+      dispatch(toggleLogin(false));
+      dispatch(toggleSignup(false));
+    },
+    hideAll() {
+      console.log('called');
+      dispatch(toggleLogin(false));
+      dispatch(toggleSignup(false));
     }
   };
 };
@@ -76,5 +98,6 @@ AuthForm.propTypes = {
   name: PropTypes.string.isRequired,
   displayName: PropTypes.string.isRequired,
   handleSubmit: PropTypes.func.isRequired,
-  error: PropTypes.object
+  error: PropTypes.object,
+  hideAll: PropTypes.func
 };

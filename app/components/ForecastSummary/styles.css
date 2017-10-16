@@ -1,0 +1,11 @@
+.forecastCard {
+  margin-right: 30px;
+
+  & .cardContainer {
+    lost-utility: clearfix;
+
+    & .card {
+      lost-column: 1/4 0;
+    }
+  }
+}

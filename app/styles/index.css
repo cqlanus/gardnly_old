@@ -3,4 +3,11 @@
 @import './shared/base.css';
 
 @import '../components/NavBar/styles.css';
-@import '../components/user-home/styles.css';
+@import '../components/UserHome/styles.css';
+@import '../components/auth-form/styles.css';
+@import '../components/VertTabs/styles.css';
+@import '../components/PlotCard/styles.css';
+@import '../components/GardenSummary/styles.css';
+@import '../components/Splash/styles.css';
+@import '../components/ForecastSummary/styles.css';
+@import '../components/WeatherCard/styles.css';
