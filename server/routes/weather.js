@@ -1,42 +1,36 @@
 const TempMax = require('../../db').model('daily_max_temps');
 const TempMin = require('../../db').model('daily_min_temps');
-const Station = require('../../db').model('station');
+const Station = require('../../db/models/stations');
 
 
 module.exports = require('express').Router()
-  .get('/tempmax/station/:stationId', (req, res, next) => {
-    TempMax.findAll({
-      where: { wpan: req.params.stationId }
-    })
-      .then(rows => res.json(rows))
+  .get('/tempmax/zip/:zip', (req, res, next) => {
+    TempMax.findByZip(req.params.zip)
+      .then(months => months.reduce((a,b) => a.concat(b.days), []))
+      .then(temps => res.json(temps))
       .catch(next);
   })
-  .get('/tempmax/station/:stationId/month/:month', (req, res, next) => {
-    TempMax.findOne({
-      where: {
-        wpan: req.params.stationId,
-        month: req.params.month,
-      }
-    })
-      .then(row => res.json(row))
+  .get('/tempmax/zip/:zip/month/:month', (req, res, next) => {
+    TempMax.findByZipAndMonth(req.params.zip, +req.params.month)
+      .then(month => res.json(month))
       .catch(next);
   })
-  .get('/tempmin/station/:stationId', (req, res, next) => {
-    TempMin.findAll({
-      where: { wpan: req.params.stationId }
-    })
-      .then(rows => res.json(rows))
+  .get('/tempmin/zip/:zip', (req, res, next) => {
+    TempMin.findByZip(req.params.zip)
+      .then(months => months.reduce((a,b) => a.concat(b.days), []))
+      .then(temps => res.json(temps))
       .catch(next);
   })
-  .get('/tempmin/station/:stationId/month/:month', (req, res, next) => {
-    TempMin.findOne({
-      where: {
-        wpan: req.params.stationId,
-        month: req.params.month,
-      }
-    })
-      .then(row => res.json(row))
+  .get('/tempall/zip/:zip', (req, res, next) => {
+    const minTemps = TempMin.findByZip(req.params.zip)
+      .then(months => months.reduce((a,b) => a.concat(b.days), []));
+    const maxTemps = TempMax.findByZip(req.params.zip)
+      .then(months => months.reduce((a,b) => a.concat(b.days), []));
+
+    Promise.all([minTemps, maxTemps])
+      .then(([min, max]) => res.json({min, max}))
       .catch(next);
+
   })
   .get('/stations/:stationId', (req, res, next) => {
     Station.findOne({
