@@ -38,5 +38,26 @@ MaxTemp.findByZip = function(zip) {
     .catch(console.log);
 };
 
+MaxTemp.findByZipAndMonth = function(zip, month) {
+  console.log('here!!')
+  const query = `
+  SELECT * FROM stations
+  WHERE wban <> '99999'
+  ORDER BY center <-> (SELECT center FROM zips WHERE zip='${zip}')
+  LIMIT 1`;
+  return db.query(query, { type: db.QueryTypes.SELECT})
+    .then(row => {
+      console.log(row);
+      const query = `
+      SELECT * FROM daily_max_temps
+      WHERE station_id ='${row[0].station_id}'
+      AND month=${month}
+      `;
+      return db.query(query, { type: db.QueryTypes.SELECT});
+    })
+    .then(maxTemps => maxTemps)
+    .catch(console.log);
+};
+
 
 module.exports = MaxTemp;
