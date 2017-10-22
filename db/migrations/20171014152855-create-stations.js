@@ -41,10 +41,10 @@ module.exports = {
       season_length_90: {
         type: Sequelize.INTEGER
       },
-      ann_gdd_50: {
+      gdd_40: {
         type: Sequelize.INTEGER
       },
-      ann_gdd_90: {
+      gdd_50: {
         type: Sequelize.INTEGER
       },
       createdAt: {
