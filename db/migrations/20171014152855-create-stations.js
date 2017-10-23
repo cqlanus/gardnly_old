@@ -8,22 +8,7 @@ module.exports = {
         primaryKey: true,
         type: Sequelize.INTEGER
       },
-      usaf: {
-        type: Sequelize.STRING
-      },
-      wban: {
-        type: Sequelize.STRING
-      },
-      station_name: {
-        type: Sequelize.STRING
-      },
-      country: {
-        type: Sequelize.STRING
-      },
-      state: {
-        type: Sequelize.STRING
-      },
-      call_letters: {
+      station_id: {
         type: Sequelize.STRING
       },
       center: {
@@ -31,6 +16,36 @@ module.exports = {
       },
       elevation: {
         type: Sequelize.STRING
+      },
+      state: {
+        type: Sequelize.STRING
+      },
+      station_name: {
+        type: Sequelize.STRING
+      },
+      first_frost_50: {
+        type: Sequelize.STRING
+      },
+      first_frost_90: {
+        type: Sequelize.STRING
+      },
+      last_frost_50: {
+        type: Sequelize.STRING
+      },
+      last_frost_90: {
+        type: Sequelize.STRING
+      },
+      season_length_50: {
+        type: Sequelize.INTEGER
+      },
+      season_length_90: {
+        type: Sequelize.INTEGER
+      },
+      ann_gdd_50: {
+        type: Sequelize.INTEGER
+      },
+      ann_gdd_90: {
+        type: Sequelize.INTEGER
       },
       createdAt: {
         allowNull: false,
