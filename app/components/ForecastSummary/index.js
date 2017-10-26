@@ -12,7 +12,6 @@ class ForecastSummary extends React.Component {
 
   render() {
     const {forecast} = this.props;
-    console.log('forecast', forecast);
     return (
       <div className="forecastCard">
         <h2>Forecast Summary</h2>

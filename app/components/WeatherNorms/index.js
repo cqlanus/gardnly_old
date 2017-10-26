@@ -12,11 +12,10 @@ class WeatherNorms extends Component {
   }
 
   render() {
-    console.log(this.props.norms);
     return (
       <div>
         <h3>Weather Norms</h3>
-        <LineGraph />
+        {this.props.norms.temps && <LineGraph norms={this.props.norms} />}
       </div>
     );
   }
