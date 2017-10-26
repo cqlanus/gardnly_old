@@ -22,7 +22,7 @@ class UserHome extends Component {
           <VertTabs tabs={gardens} />
         </div>
         <div className="gardenSummary">
-          { hasGarden ? <GardenSummary /> : <ForecastSummary />}
+          { hasGarden ? <GardenSummary /> : <ForecastSummary zip={'46556'}/>}
         </div>
       </div>
     );
