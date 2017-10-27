@@ -5,18 +5,7 @@
         "es6": true,
         "node": true
     },
-    "extends": ["eslint:recommended", "plugin:react/recommended"],
-    "parserOptions": {
-        "ecmaFeatures": {
-            "experimentalObjectRestSpread": true,
-            "jsx": true
-        },
-        "sourceType": "module"
-    },
-    "plugins": [
-        "react"
-    ],
-    "parser": "babel-eslint",
+    "extends": "eslint:recommended",
     "rules": {
         "indent": [
             "error",
@@ -35,5 +24,8 @@
             "always"
         ],
         "no-console": "off"
+    },
+    "parserOptions": {
+        "sourceType": "module"
     }
 }
