@@ -7,7 +7,7 @@ import WeatherNorms from '../WeatherNorms';
 
 class ForecastSummary extends React.Component {
   componentDidMount() {
-    this.props.getForecast(60625);
+    this.props.getForecast(this.props.zip);
   }
 
   render() {
@@ -26,7 +26,7 @@ class ForecastSummary extends React.Component {
           }
         </div>
 
-        <WeatherNorms zip={'60625'} />
+        <WeatherNorms zip={this.props.zip} />
 {/*
         <button onClick={() => createField(60625)}>Create field</button>
         <button onClick={() => getFields()}>Get Fields</button>
@@ -64,4 +64,5 @@ ForecastSummary.propTypes = {
   createField: PropTypes.func,
   getFields: PropTypes.func,
   getWeatherNorms: PropTypes.func,
+  zip: PropTypes.string
 };
