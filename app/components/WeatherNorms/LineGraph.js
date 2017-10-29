@@ -17,7 +17,7 @@ class LineGraph extends Component {
       left: 30,
       right: 20
     };
-    const maxTemp = _.max(this.props.norms.temps.max);
+    const maxTemp = _.max(this.props.norms.daily.maxTemps);
     const xScale = scaleLinear()
     .domain([0,380])
     .range([0, 670]);
@@ -27,8 +27,8 @@ class LineGraph extends Component {
     .range([0,360]);
 
     const height = 400, width = 700;
-    const tempsMax = this.props.norms.temps.max.filter(temp => !!temp);
-    const tempsMin = this.props.norms.temps.min.filter(temp => !!temp);
+    const tempsMax = this.props.norms.daily.maxTemps.filter(temp => !!temp && temp > 0);
+    const tempsMin = this.props.norms.daily.minTemps.filter(temp => !!temp && temp > 0);
     return (
       <svg width={width} height={height}>
         <YAxis

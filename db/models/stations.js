@@ -51,7 +51,6 @@ Station.findByZip = function(zip) {
   return db.query(query, { type: db.QueryTypes.SELECT})
     .then(stations => {
       let completeStations = stations.filter(station => station.first_frost_50 !== 'NaN');
-      console.log('filtered', completeStations[0]);
       return completeStations[0];
     })
     .catch(console.log);
