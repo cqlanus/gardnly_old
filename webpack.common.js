@@ -1,10 +1,12 @@
 const webpack = require('webpack');
 const path = require('path');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
+const CleanWebPackPlugin = require('clean-webpack-plugin');
 
 module.exports = {
   entry: {
-    main: './app/index.js'
+    main: './app/index.js',
+    vendor: ['axios', 'react', 'react-dom', 'react-redux', 'redux', 'react-router-dom' ]
   },
   output: {
     path: path.resolve(__dirname, 'public'),
@@ -37,5 +39,10 @@ module.exports = {
   },
   plugins: [
     new ExtractTextPlugin('[name].bundle.css'),
+    new webpack.optimize.CommonsChunkPlugin({
+      names: ['main', 'vendor'],
+      minChunks: 2
+    }),
+    new CleanWebPackPlugin(path.resolve(__dirname, 'public'))
   ],
-};
+}
