@@ -34,8 +34,24 @@ module.exports = require('express').Router()
   })
   .get('/stations/:stationId', (req, res, next) => {
     Station.findOne({
-      where: {wpan: req.params.stationId}
+      where: {station_id: req.params.stationId}
     })
       .then(station => res.json(station))
+      .catch(next);
+  })
+  .get('/stations/zip/:zip', (req, res, next) => {
+    Station.findByZip(req.params.zip)
+      .then(station => res.json(station))
+      .catch(next);
+  })
+  .get('/zip/:zip', (req, res, next) => {
+    const station = Station.findByZip(req.params.zip);
+    const minTemps = TempMin.findByZip(req.params.zip)
+      .then(months => months.reduce((a,b) => a.concat(b.days), []));
+    const maxTemps = TempMax.findByZip(req.params.zip)
+      .then(months => months.reduce((a,b) => a.concat(b.days), []));
+
+    Promise.all([station, minTemps, maxTemps])
+      .then(([station, min, max]) => res.json({ station, temps: { min, max } }))
       .catch(next);
   });
