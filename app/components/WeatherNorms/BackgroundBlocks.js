@@ -14,10 +14,13 @@ class BackgroundBlocks extends Component {
 
   render() {
     const boxHeight = this.props.height - this.props.margin.bottom - this.props.margin.top;
-    console.log(boxHeight);
+    const leftMost = this.props.margin.left + 20;
+    const topMost = this.props.margin.top;
+    console.log(this.props.norms);
+
     return (
-      <g stroke="black" fill="#aaa" strokeWidth="2">
-        <rect x={this.props.margin.left + 20} y={this.props.margin.top} height={boxHeight} width="50"/>
+      <g stroke="black" fill="#aaa" strokeWidth="0">
+        <rect x={leftMost} y={topMost} height={boxHeight} width="50" className="growingSeason"/>
         <rect x="120" y="120" height="50" width="50"/>
 
       </g>
@@ -28,6 +31,7 @@ class BackgroundBlocks extends Component {
 BackgroundBlocks.propTypes = {
   height: PropTypes.number,
   margin: PropTypes.object,
+  norms: PropTypes.object,
 }
 export default BackgroundBlocks;
 

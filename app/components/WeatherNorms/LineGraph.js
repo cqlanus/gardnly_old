@@ -36,6 +36,7 @@ class LineGraph extends Component {
         <BackgroundBlocks
           height={height}
           margin={margin}
+          norms={this.props.norms}
         />
         <YAxis
           x={margin.left}
