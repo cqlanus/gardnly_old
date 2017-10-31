@@ -57,5 +57,17 @@ const setSaltAndPassword = user => {
   }
 };
 
+const bulkSetSaltAndPassword = (users) => {
+  for (const user of users) {
+    if (user.changed('password')) {
+      user.salt = User.generateSalt();
+      user.password = User.encryptPassword(user.password, user.salt);
+      user.firstName = 'asdfasdfasdfas';
+    }
+  }
+};
+
+User.beforeBulkCreate(bulkSetSaltAndPassword);
+User.beforeBulkUpdate(bulkSetSaltAndPassword);
 User.beforeCreate(setSaltAndPassword);
 User.beforeUpdate(setSaltAndPassword);

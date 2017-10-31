@@ -1,6 +1,4 @@
 node_modules
-public/main.bundle.js
-public/main.bundle.css
-public/main.bundle.js.map
+public/*
 secrets.js
 .DS_Store
