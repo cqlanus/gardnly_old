@@ -33,6 +33,9 @@ const Icon = ({icon}) => {
     return <Storm />;
   case 'wind':
     return <Windy />
+  case 'cloudy':
+    return <Cloudy />;
+
 
   default:
     return <div></div>;

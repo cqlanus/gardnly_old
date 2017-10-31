@@ -4,6 +4,7 @@ import {XAxis, YAxis} from './Axis';
 import {Line} from './Line';
 import _ from 'lodash';
 import {scaleLinear} from 'd3-scale';
+import BackgroundBlocks from './BackgroundBlocks';
 
 class LineGraph extends Component {
   constructor() {
@@ -30,7 +31,13 @@ class LineGraph extends Component {
     const tempsMax = this.props.norms.daily.maxTemps.filter(temp => !!temp && temp > 0);
     const tempsMin = this.props.norms.daily.minTemps.filter(temp => !!temp && temp > 0);
     return (
+    <div>
       <svg width={width} height={height}>
+        <BackgroundBlocks
+          height={height}
+          margin={margin}
+          norms={this.props.norms}
+        />
         <YAxis
           x={margin.left}
           y={margin.top}
@@ -56,6 +63,7 @@ class LineGraph extends Component {
           yScale={yScale}
           temps={tempsMin} />
       </svg>
+    </div>
     );
   }
 }
