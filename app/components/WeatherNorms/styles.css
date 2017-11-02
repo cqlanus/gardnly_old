@@ -6,4 +6,10 @@
 
 .growingSeason {
   fill: lightgreen;
+  opacity: 0.5;
+}
+
+.coldSeason {
+  fill: lightblue;
+  opacity: 0;
 }
